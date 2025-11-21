@@ -1,5 +1,17 @@
-<app-header></app-header>
+<ng-container *ngIf="!esLoginRegistro()">
+  <app-header></app-header>
+  
+</ng-container>
+
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="!esLoginRegistro()">
+  <app-footer></app-footer>
+</ng-container>
+
+
+<!-- <app-header></app-header>
 
 <router-outlet />
 
-<app-footer></app-footer>
+<app-footer></app-footer> -->
