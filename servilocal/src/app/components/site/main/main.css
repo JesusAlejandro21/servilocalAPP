@@ -1,0 +1,12 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, auto));
+  gap: 20px;
+  padding: 20px;
+  place-items: center;
+}
+
+.card-img-top{
+width: 18rem;
+height: 200px; 
+}

@@ -25,7 +25,7 @@ export class workerService{
       .set('Authorization', 'Token_de_autorizacion' );
 
     return this._http.get(
-        this.url + "workers/workers",
+        this.url + "site/main",
         { headers: headers }
       );
 

@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="form-box">
+    <h2>Iniciar Sesión</h2>
+
+    <div class="selector">
+      <label><input type="radio" [(ngModel)]="tipo" value="usuario"> Usuario</label>
+      <label><input type="radio" [(ngModel)]="tipo" value="trabajador"> Trabajador</label>
+    </div>
+
+    <form (ngSubmit)="iniciarSesion()">
+      <input type="email" [(ngModel)]="form.correo" name="correo" placeholder="Correo" required />
+      <input type="password" [(ngModel)]="form.contrasena" name="contrasena" placeholder="Contraseña" required />
+
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <p routerLink="/site/register" class="toggle">
+      ¿No tienes cuenta? Regístrate aquí
+    </p>
+  </div>
+</div>
+
