@@ -31,6 +31,32 @@ export class workerService{
 
   }
 
+  getPreference( ):Observable<any>{
+    let headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Token_de_autorizacion' );
+
+    return this._http.get(
+        this.url + "preferencemp",
+        { headers: headers }
+      );
+
+  }
+
+  processPayment( data: any ):Observable<any>{
+
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', 'Token_de_autorizacion' );
+
+    return this._http.post(
+        this.url + "processpayment",
+        data,
+        { headers: headers }
+      );
+
+  }
+
   /*getProducts( ):Observable<any>{
 
     let headers = new HttpHeaders()
