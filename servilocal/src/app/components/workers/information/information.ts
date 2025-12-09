@@ -18,7 +18,7 @@ export class Information {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.http.get(`http://localhost:5000/workers/information/${id}`).subscribe((res: any) => {
+    this.http.get(`https://servilocalapi2.onrender.com/workers/information/${id}`).subscribe((res: any) => {
       this.trabajador = res.trabajador;
     });
   }
