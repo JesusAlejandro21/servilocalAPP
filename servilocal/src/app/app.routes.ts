@@ -11,6 +11,7 @@ export const routes: Routes = [
         loadChildren: () => import('./components/workers/workers.routes').then(m => m.workersRoutes)
     },
     
+    
     {
         path: '**',
         redirectTo: 'site/main'

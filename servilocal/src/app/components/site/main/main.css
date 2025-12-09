@@ -10,3 +10,21 @@
 width: 18rem;
 height: 200px; 
 }
+
+.fav-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.fav-icon:hover {
+  color: #ff4d4d;
+}
+
+.fav-icon.favorito {
+  color: #e60023; /* rojo */
+}

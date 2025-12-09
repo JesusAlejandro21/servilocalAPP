@@ -1,0 +1,18 @@
+<div class="grid-container" *ngIf="trabajadoresFavoritos.length > 0">
+  @for (t of trabajadoresFavoritos; track $index) {
+    <div class="card" style="width: 18rem;">
+      <img src="{{ 'http://localhost:5000/' + t.foto_trabajador }}" class="card-img-top">
+      <div class="card-body">
+        <h5>{{ t.nombre }}</h5>
+        <p>{{ t.descripcion_trabajo }}</p>
+        <a class="btn btn-primary" [routerLink]="['/workers/information', t.id_trabajador]">
+          Ver información
+        </a>
+      </div>
+    </div>
+  }
+</div>
+
+<div *ngIf="trabajadoresFavoritos.length === 0" class="text-center mt-4">
+  <h3>No tienes trabajadores en favoritos aún</h3>
+</div>

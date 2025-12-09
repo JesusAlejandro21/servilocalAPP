@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { workerService } from '../../../services/worker.service';
 
@@ -9,7 +9,7 @@ import { workerService } from '../../../services/worker.service';
   templateUrl: './main.html',
   styleUrl: './main.css'
 })
-export class Main {
+export class Main implements OnInit {
   //public products = null;
     public trabajadores: any[] = [];
   
@@ -42,5 +42,31 @@ export class Main {
       });
     }
 
+    favoritos: number[] = [];
 
+ngOnInit() {
+  this.cargarFavoritos();
+}
+
+cargarFavoritos() {
+  const saved = localStorage.getItem('favoritos');
+  this.favoritos = saved ? JSON.parse(saved).map((x: any) => Number(x)) : [];
+}
+
+guardarFavoritos() {
+  localStorage.setItem('favoritos', JSON.stringify(this.favoritos));
+}
+
+esFavorito(id: number): boolean {
+  return this.favoritos.includes(id);
+}
+
+toggleFavorito(id: number) {
+  if (this.esFavorito(id)) {
+    this.favoritos = this.favoritos.filter(f => f !== id);
+  } else {
+    this.favoritos.push(id);
+  }
+  this.guardarFavoritos();
+}
 }

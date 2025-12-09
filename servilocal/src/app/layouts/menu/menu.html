@@ -29,6 +29,14 @@
             <li><a class="dropdown-item" href="#">Contacto</a></li>
           </ul>
         </li>
+
+         <!-- AQUI VA FAVORITOS -->
+        <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="nav-link text-white fw-semibold hover-nav" routerLink="/workers/favoritos" style="cursor: pointer;">
+              Favoritos ❤️
+            </a>
+        </li>
+
       </ul>
 
       <div class="d-flex ms-lg-3 align-items-center">

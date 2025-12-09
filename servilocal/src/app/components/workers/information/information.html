@@ -1,4 +1,62 @@
-<div class="container mt-4" *ngIf="trabajador">
+<div class="container mt-5" *ngIf="trabajador">
+
+  <h2 class="fw-bold mb-4">{{ trabajador.descripcion_trabajo }}</h2>
+
+  <div class="perfil-card d-flex flex-wrap align-items-center p-4">
+
+    <div class="text-center">
+      <img [src]="'http://localhost:5000/' + trabajador.foto_trabajador"
+           class="perfil-foto rounded-circle mb-3"
+           alt="Foto del trabajador" />
+      <h4 class="fw-bold">{{ trabajador.nombre }}</h4>
+      <p class="text-muted">Profesional</p>
+    </div>
+
+    <div class="flex-grow-1 ps-md-4 mt-4 mt-md-0">
+
+      <p class="mb-2">
+        <strong>Correo:</strong>
+        <a href="mailto:{{ trabajador.correo_trabajador }}">{{ trabajador.correo_trabajador }}</a>
+      </p>
+
+      <p class="mb-4">
+        <strong>Teléfono:</strong>
+        <a href="tel:{{ trabajador.telefono_trabajador }}">{{ trabajador.telefono_trabajador }}</a>
+      </p>
+
+      <div class="d-flex flex-wrap gap-3">
+        <a class="btn btn-outline-primary" href="https://maps.google.com" target="_blank">
+          Dirección
+        </a>
+
+        <a class="btn btn-outline-secondary" href="mailto:{{ trabajador.correo_trabajador }}">
+          Email
+        </a>
+
+        <a class="btn btn-outline-success"
+           target="_blank"
+           [href]="'https://wa.me/' + trabajador.telefono_trabajador">
+          WhatsApp
+        </a>
+
+        <a class="btn btn-primary" routerLink="/site/main">
+          Solicitar servicio
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mt-5">
+    <h5 class="fw-bold">Descripción del servicio</h5>
+    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.7;">
+      {{ trabajador.descripcion_larga || trabajador.descripcion_trabajo }}
+    </p>
+  </div>
+
+</div>
+
+
+<!--<div class="container mt-4" *ngIf="trabajador">
     <div class="card" style="width: 18rem;">
     <img src="{{ 'http://localhost:5000/' + trabajador.foto_trabajador }}" class="card-img-top" alt="foto del trabajador" width="200">
 
@@ -10,5 +68,5 @@
       <a routerLink="/site/main" class="btn btn-primary">contratar</a>
     </div>
   </div>
-</div>
+</div>-->
 
