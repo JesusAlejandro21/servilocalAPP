@@ -29,12 +29,35 @@
             <li><a class="dropdown-item" href="#">Contacto</a></li>
           </ul>
         </li>
+
+         <!-- AQUI VA FAVORITOS -->
+        <li class="nav-item" *ngIf="isLoggedIn()">
+            <a class="nav-link text-white fw-semibold hover-nav" routerLink="/workers/favoritos" style="cursor: pointer;">
+              Favoritos ❤️
+            </a>
+        </li>
+
       </ul>
 
-      <form class="d-flex ms-lg-3">
-        <input class="form-control me-2 rounded-pill" type="search" placeholder="Buscar..." aria-label="Search">
-        <button class="btn btn-light rounded-pill fw-semibold" type="submit">Buscar</button>
-      </form>
+      <div class="d-flex ms-lg-3 align-items-center">
+
+        <!-- Si el usuario NO está logueado -->
+        <button *ngIf="!isLoggedIn()" class="btn btn-light rounded-pill fw-semibold" (click)="irLogin()">
+          Iniciar sesión
+        </button>
+
+        <!-- Si el usuario SÍ está logueado -->
+        <div *ngIf="isLoggedIn()" class="dropdown">
+          <button class="btn btn-light rounded-pill fw-semibold dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            {{ nombreUsuario || 'Mi cuenta' }}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" routerLink="/perfil">Perfil</a></li>
+            <li><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </nav>

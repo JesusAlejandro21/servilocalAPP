@@ -1,0 +1,104 @@
+/* --- Fondo general --- */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #20B2AA, #008080);
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Caja del formulario --- */
+.form-box {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* --- Título --- */
+.form-box h2 {
+  color: #008080;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* --- Selector de tipo de usuario --- */
+.selector {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.selector label {
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* --- Campos de entrada --- */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #20B2AA;
+  box-shadow: 0 0 5px rgba(32, 178, 170, 0.4);
+}
+
+/* --- Botón principal --- */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #20B2AA;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #2dbfb8;
+  transform: translateY(-2px);
+}
+
+/* --- Enlace para registro --- */
+.toggle {
+  margin-top: 20px;
+  color: #008080;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.toggle:hover {
+  color: #006666;
+}
+
+/* --- Animación --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

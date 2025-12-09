@@ -1,1 +1,33 @@
-<p>register works!</p>
+<div class="register-container">
+  <div class="form-box">
+    <h2>Registro</h2>
+
+    <div class="selector">
+      <label><input type="radio" [(ngModel)]="tipo" value="usuario"> Usuario</label>
+      <label><input type="radio" [(ngModel)]="tipo" value="trabajador"> Trabajador</label>
+    </div>
+
+    <form (ngSubmit)="registrar()">
+
+      <input type="text" [(ngModel)]="form.nombre" name="nombre" placeholder="Nombre" required />
+      <input type="email" [(ngModel)]="form.correo" name="correo" placeholder="Correo" required />
+      <input type="password" [(ngModel)]="form.contrasena" name="contrasena" placeholder="Contraseña" required />
+
+      <div *ngIf="tipo === 'usuario'">
+        <input type="text" [(ngModel)]="form.apellidos" name="apellidos" placeholder="Apellidos" required />
+        <input type="text" [(ngModel)]="form.direccion" name="direccion" placeholder="Dirección" required />
+        <input type="text" [(ngModel)]="form.telefono" name="telefono" placeholder="Teléfono" required />
+      </div>
+
+      <div *ngIf="tipo === 'trabajador'">
+        <input type="text" [(ngModel)]="form.telefono" name="telefono" placeholder="Teléfono" required />
+        <textarea [(ngModel)]="form.descripcion_trabajo" name="descripcion_trabajo" placeholder="Descripción del trabajo" required></textarea>
+      </div>
+
+      <button type="submit">Registrarse</button>
+
+    </form>
+
+    <p routerLink="/site/login" class="toggle">¿Ya tienes cuenta? Inicia sesión</p>
+  </div>
+</div>
